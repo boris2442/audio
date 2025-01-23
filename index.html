@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <audio
+      src="./Shura_-_Allez_Dire__Official_Video_(256k).mp3"
+      id="my-audio"
+    ></audio>
+    <div class="">
+      <a href="javascript:void(0)" onclick="changeState(0)" class="btn">play</a>
+      <a href="javascript:void(0)" onclick="changeState(1)" class="btn"
+        >Pause</a
+      >
+      <a href="javascript:void(0)" onclick="changeState(2)" class="btn">stop</a>
+    </div>
+
+    <script>
+      function changeState(x) {
+        let btns = document.querySelectorAll(".btn");
+        btns.forEach((btn) => {
+          btn.classList.remove("active");
+        });
+        btns[x].classList.add("active");
+
+        //    let activeLink=document.querySelector(".btn").addEventListener("click").classList.add("active")
+        let audio = document.querySelector("#my-audio");
+
+        if (x === 0) {
+          audio.play();
+        } else if (x === 1) {
+          audio.pause();
+        } else if (x === 2) {
+          audio.pause();
+          audio.currentTime = 0;
+        }
+      }
+    </script>
+  </body>
+</html>
